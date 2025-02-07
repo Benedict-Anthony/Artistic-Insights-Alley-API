@@ -21,7 +21,7 @@ SECRET_KEY = "django-insecure-u$f%4ws5b9_xb81pigthd9mnkab$+h#09ld6gq$b$)47^h@!xv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = ["artistic-insights-alley-api.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "artistic-insights-alley-api.onrender.com"]
 
 
 # Application definition
@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = extended.REST_FRAMEWORK
 
-CORS_ALLOWED_ORIGINS = extended.CORS_ALLOWED_ORIGINS
+CORS_ALLOW_ALL_ORIGINS = extended.CORS_ALLOW_ALL_ORIGINS
 
 SPECTACULAR_SETTINGS = extended.SPECTACULAR_SETTINGS
 AUTH_USER_MODEL = "users.User"
