@@ -4,7 +4,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
 
-from .serializers import UserCreateSerializer
+from users.models import User
+
+from .serializers import UserCreateSerializer, UserViewializer
 
 
 class UserCreateView(APIView):
@@ -23,3 +25,17 @@ class UserCreateView(APIView):
         serializer.save()
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class UserView(APIView):
+    serializer_class = UserViewializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        try:
+            user = User.objects.get(pk=request.user.id)
+
+            serializer = self.serializer_class(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except:
+            return Response({"message": "User not found"})
