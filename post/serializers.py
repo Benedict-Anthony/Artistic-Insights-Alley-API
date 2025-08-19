@@ -21,7 +21,7 @@ class PostViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
 
-        fields = ["id", "title", "excerpt", "content", "author",
+        fields = ["id", "title", "excerpt","image", "content", "author",
                   "category",  "image_url", "created_at", "slug", "comments"]
 
 
