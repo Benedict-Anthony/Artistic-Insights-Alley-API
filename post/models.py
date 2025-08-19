@@ -45,7 +45,7 @@ class Post(models.Model):
     @property
     def image_url(self):
         try:
-            return f"http://127.0.0.1:8000{self.image.url}"
+            return self.image.url
         except:
             return ""
 
